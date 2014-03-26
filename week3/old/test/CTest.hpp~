@@ -1,0 +1,13 @@
+#include <iostream>
+
+using namespace std;
+
+class CTest {
+  
+public:
+  
+  void printsomething() {
+      cout << "Hello World!" << endl;
+  }
+  
+};

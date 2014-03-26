@@ -1,0 +1,10 @@
+#ifndef CWARRIOR_HPP
+#define CWARRIOR_HPP
+
+#include <iostream>
+
+using namespace std;
+
+
+
+#endif

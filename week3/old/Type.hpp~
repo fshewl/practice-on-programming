@@ -1,0 +1,4 @@
+#ifndef TYPE_HPP__
+#define TYPE_HPP__
+
+enum HeadquaterType { RED = 0, BLUE };
