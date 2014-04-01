@@ -6,6 +6,8 @@
 #include <iostream>
 #include <iomanip>
 
+#define MAX_WARRIORS 1000
+
 class CWarrior;
 
 class CHeadquarter {
@@ -14,6 +16,7 @@ private:
   static const char * pColor[];
   static const WarriorType Warrior_RED[];
   static const WarriorType Warrior_BLUE[];
+  CWarrior * warriors[MAX_WARRIORS];
 
   
   const HeadquarterType HQType;
@@ -24,6 +27,8 @@ private:
   int id;
   int last_create;
 
+  int total_warriors;
+
   bool stop;
 
 public:
@@ -31,6 +36,7 @@ public:
   void create_warrior(int clock);
   bool stop_create();
   const char * getColor() const;
+  int getWarriorNum() const;
   
 };
 

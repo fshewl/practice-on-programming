@@ -22,6 +22,8 @@ CHeadquarter(HeadquarterType type, int life, int *warrior_str)
     for (int i = 0; i < 5; i++) 
       warriors_strength[i] = warrior_str[i];
 
+    total_warriors = 0;
+    
     id = 0;
     stop = false;
     last_create = 0;
@@ -65,7 +67,10 @@ void CHeadquarter::create_warrior(int clock) {
 
       //cout << " Life left: " << life_pool << endl;
       
-      CWarrior warrior(++id, this, WType, strength_to_create);
+      warriors[total_warriors] = new CWarrior(++id, this, WType, strength_to_create);
+      CWarrior & warrior = *warriors[total_warriors];
+      total_warriors++;
+      
       number_of_warriors[warrior.getType()]++;
       
       cout << setfill('0') << setw(3) << clock << ' ';
@@ -89,4 +94,8 @@ bool CHeadquarter::stop_create() {
 
 const char * CHeadquarter::getColor() const {
   return pColor[HQType];
+}
+
+int CHeadquarter::getWarriorNum() const {
+  return total_warriors;
 }
