@@ -4,6 +4,7 @@
 #include "CHeadquarter.hpp"
 #include "Type.hpp"
 
+
 class CHeadquarter;
 
 class CWarrior {
@@ -12,17 +13,18 @@ private:
   static const char * pWarriorTypeString[];
   
   const int id;
-  const int strength;
+  int life;
   const WarriorType type;
   const CHeadquarter *pHQ;
 
 public:
 
-  CWarrior(int id, const CHeadquarter *pHQ, WarriorType type, int strength):
-    id(id), pHQ(pHQ), type(type), strength(strength) {}
+  CWarrior(int id, const CHeadquarter *pHQ, WarriorType type, int life):
+    id(id), pHQ(pHQ), type(type), life(life) {}
 
   int getID();
-  int getStrength();
+  int getLife();
+  void setLife(int life);
   int getType();
   const char * getTypeString() const;
   const CHeadquarter * getHQ() const;

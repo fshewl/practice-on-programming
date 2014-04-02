@@ -9,8 +9,12 @@ int CWarrior::getID() {
   return id;
 }
 
-int CWarrior::getStrength() {
-  return strength;
+int CWarrior::getLife() {
+  return life;
+}
+
+void CWarrior::setLife(int l) {
+  life = l;
 }
 
 int CWarrior::getType() {

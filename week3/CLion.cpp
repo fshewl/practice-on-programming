@@ -1,5 +1,6 @@
 #include "CWarrior.hpp"
 #include "Type.hpp"
+#include <iostream>
 
 class CLion: public CWarrior {
 

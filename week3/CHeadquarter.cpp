@@ -6,10 +6,10 @@ const char * CHeadquarter::
 pColor[] = { "red", "blue" };
 
 const WarriorType CHeadquarter::
-Warrior_RED[] = { ICEMAN, LION, WOLF, NINJA, DRAGON };
+Warrior_RED[] = { ICEMAN, LION, WOLF, NINJIA, DRAGON };
 
 const WarriorType CHeadquarter::
-Warrior_BLUE[]  = { LION, DRAGON, NINJA, ICEMAN, WOLF };
+Warrior_BLUE[]  = { LION, DRAGON, NINJIA, ICEMAN, WOLF };
 
 CHeadquarter::
 CHeadquarter(HeadquarterType type, int life, int *warrior_str)
@@ -66,8 +66,38 @@ void CHeadquarter::create_warrior(int clock) {
       life_pool -= strength_to_create;
 
       //cout << " Life left: " << life_pool << endl;
+
+      switch(WType) {
+      case LION:
+	warriors[total_warriors] =
+	  new CLion(++id, this, WType, strength_to_create);
+	break;
+
+      case WOLF:
+	warriors[total_warriors] =
+	  new CWolf(++id, this, WType, strength_to_create);
+	break;
+
+      case DRAGON:
+	warriors[total_warriors] =
+	  new CDragon(++id, this, WType, strength_to_create);
+	break;
+
+      case ICEMAN:
+	warriors[total_warriors] =
+	  new CIceman(++id, this, WType, strength_to_create);
+	break;
+
+      case NINJIA:
+	warriors[total_warriors] =
+	  new CNinjia(++id, this, WType, strength_to_create);
+	break;
+
+
+	
+
+      }
       
-      warriors[total_warriors] = new CWarrior(++id, this, WType, strength_to_create);
       CWarrior & warrior = *warriors[total_warriors];
       total_warriors++;
       
@@ -77,7 +107,7 @@ void CHeadquarter::create_warrior(int clock) {
       cout << getColor() << ' ';
       cout << warrior.getTypeString() << ' ';
       cout << warrior.getID() << ' ';
-      cout << "born with strength " << warrior.getStrength() << ",";
+      cout << "born with strength " << warrior.getLife() << ",";
       cout << number_of_warriors[warrior.getType()] << ' ';
       cout << warrior.getTypeString() << " in " << getColor() << " headquarter" << endl;
       //cout << endl;

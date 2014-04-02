@@ -37,6 +37,7 @@ public:
   bool stop_create();
   const char * getColor() const;
   int getWarriorNum() const;
+  int getLifePool() const { return life_pool; }
   
 };
 
