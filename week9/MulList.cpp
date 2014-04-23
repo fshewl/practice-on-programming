@@ -57,6 +57,7 @@ void MulList::add(int id, int num) {
 }
 
 void MulList::output(int id) {
+  //cout << "ouput " << id << endl;
   mList[id]->sort();
   list<int>::iterator it = mList[id]->begin();
   for(; it != mList[id]->end(); it++)
@@ -70,9 +71,12 @@ void MulList::merge(int id1, int id2) {
   mList[id2]->sort();
 
   mList[id1]->merge(*mList[id2]);
+  //unique(id1);
+  
 }
 
 void MulList::unique(int id) {
+  mList[id]->sort();
   mList[id]->unique();
 }
  
@@ -124,6 +128,10 @@ int main() {
 
   for (int i = 0; i < numCmd; i++) {
     cin.getline(command, MAXCMD);
+    
+    if (strlen(command) == 0)
+      continue;
+    
     ml.runCmd(command);
   }
 
