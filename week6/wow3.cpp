@@ -115,7 +115,7 @@ void CWarrior::printBase() {
 
 
 }
-
+ 
 class CLion: public CWarrior {
 
 private:
